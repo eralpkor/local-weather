@@ -20,7 +20,7 @@ $(document).ready(function(){
 	var extremeId = [900, 901, 902, 903, 904, 905, 906];
 	var additionalId = [951, 952, 953, 954, 955, 956, 957, 958, 959, 960, 961, 962];
 
-//var body = document.getElementByTagName("body")[0];
+
 	
 	var fahTemp;
 	var celTemp;
@@ -28,11 +28,7 @@ $(document).ready(function(){
 	var windSpeedKm;
 
 	
-	// if (navigator.geolocation) {
- //  navigator.geolocation.getCurrentPosition(function(position) {
-
- //  	lon = position.coords.longitude;
- //  	lat = position.coords.latitude;
+	
 
 	var api = "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid=6514690fd982377cba22dc9a829e7f80";
 
@@ -66,13 +62,6 @@ $(document).ready(function(){
 		var celTemp = celTemp.toFixed(1);
 		var fahTemp = fahTemp.toFixed(1);
 
-		// Change background image on mouse click
-		// $("#clickMe").click(function() {
-		// 	src = $("#hero").attr("src"); //1
-		// 	if (src) {
-  //     $("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,q_100,w_2560/v1472843912/arizona_desert.jpg");
-  //     	}
-  // 		});
 
 		$("#location").html(location);
 		$("#fahTemp").html(fahTemp + " &#x2109;");
@@ -114,14 +103,7 @@ $(document).ready(function(){
 		} else{
 			$("#greeting").replaceWith(greeting = "Good Morning " + location);
 		}
-		
-		//$('p').css({"color":"blue"});
-		//$('body').css("background-image", "url(https://hd.unsplash.com/photo-1465572089651-8fde36c892dd)");
-		//$("#hero").html(function)
 
-		// if ("mainId").filter(cloudId) {
-		// 	$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472927594/clouds_q6jxw4.jpg");
-		// }
 if(mainId === rainId[0],[1],[2],[3],[4],[5],[6],[7],[8],[9]){
 	$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472930478/rain1_illywl.jpg");
 }else if(mainId === cloudId[0],[1],[2],[3]){
@@ -133,18 +115,6 @@ if(mainId === rainId[0],[1],[2],[3],[4],[5],[6],[7],[8],[9]){
 	console.log(clearId[0]);
 }
 
-
-
-//document.write(greeting);
-// 		// if(fahTemp > 80){
-// 		// 	$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,q_100,w_2560/v1472843912/arizona_desert.jpg");
-// 		// 	//$('body').css("background-image", "url(https://hd.unsplash.com/photo-1465572089651-8fde36c892dd)");
-// 		// }else if(fahTemp > 70){
-// 		// 	$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472843912/cloudy_beach_rzey4m.jpg");
-// 		// 	/*$('#hero').css("background", "url(http://res.cloudinary.com/default-ek/image/upload/c_scale,w_1920/v1472843912/cloudy_beach_rzey4m.jpg)");*/
-// 		// }else if(fahTemp > 60){
-// 		// 	$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,q_100,w_2560/v1472843913/cloud_mountain_f6isvl.jpg");
-			
 
 
 	});
