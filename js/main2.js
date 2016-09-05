@@ -4,11 +4,12 @@
 
 
 $(document).ready(function(){
-	var lon;
-	var lat;
-	$.getJSON("http://ip-api.com/json", function(data2){
-		lat = data2.lat;
-		lon = data2.lon;
+
+	
+
+		
+	// Weather condition ID's by Open Weather API
+	//var iconSunny = "../img/rain_showers.png";
 
 	var thunderstormId = [200, 201, 202, 210, 211, 212, 221, 230, 231, 232];
 	var drizzleId = [300, 301, 302, 310, 311, 312, 313, 314, 321];
@@ -21,18 +22,19 @@ $(document).ready(function(){
 	var additionalId = [951, 952, 953, 954, 955, 956, 957, 958, 959, 960, 961, 962];
 
 //var body = document.getElementByTagName("body")[0];
-	
+	var lon;
+	var lat;
 	var fahTemp;
 	var celTemp;
 	var windSpeedMi;
 	var windSpeedKm;
 
 	
-	// if (navigator.geolocation) {
- //  navigator.geolocation.getCurrentPosition(function(position) {
+	if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function(position) {
 
- //  	lon = position.coords.longitude;
- //  	lat = position.coords.latitude;
+  	lon = position.coords.longitude;
+  	lat = position.coords.latitude;
 
 	var api = "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid=6514690fd982377cba22dc9a829e7f80";
 
@@ -108,13 +110,12 @@ $(document).ready(function(){
 		var greeting;
 
 		if (hourNow >= 18){
-			$("#greeting").replaceWith(greeting = "Good Evening " + location);
+			$("#greeting").replaceWith(greeting = "Good Evening");
 		} else if (hourNow >= 12) {
 			$("#greeting").replaceWith(greeting = "Good Afternoon " + location);
 		} else{
-			$("#greeting").replaceWith(greeting = "Good Morning " + location);
+			$("#greeting").replaceWith(greeting = "Good Morning");
 		}
-		
 		//$('p').css({"color":"blue"});
 		//$('body').css("background-image", "url(https://hd.unsplash.com/photo-1465572089651-8fde36c892dd)");
 		//$("#hero").html(function)
@@ -130,7 +131,7 @@ if(mainId === rainId[0],[1],[2],[3],[4],[5],[6],[7],[8],[9]){
 	$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472930471/thunderstorm1_uhxbg2.jpg");
 }else if (mainId == clearId[0]){
 	$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472843912/arizona_desert.jpg");//, $("#weatherIcon").css("background-image", "url(../img/rain_showers.png)");//$("#weatherIcon").replaceWith(iconSunny);
-	console.log(clearId[0]);
+	
 }
 
 
@@ -148,7 +149,8 @@ if(mainId === rainId[0],[1],[2],[3],[4],[5],[6],[7],[8],[9]){
 
 
 	});
-	});
-  
 
+    //$("#data").html("latitude: " + lat + "<br>longitude: " + lon);
+  });
+}	
 });

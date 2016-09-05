@@ -15,16 +15,18 @@ box-sizing: border-box;
 	background-image: url();
 	background-repeat: repeat;
 }*/
-body, h1, h3, p{
-	/*font-family: 'Montserrat Alternates', sans-serif;*/
-	font-family: 'Lato', sans-serif;
+body, h1, h3{
+	font-family: 'Montserrat Alternates', sans-serif;
+	/*font-family: 'Lato', sans-serif;*/
 }
 h1, h3{
 	text-shadow: 1px 1px #C3C6C7;
 	color: #535F63;
 }
 p{
-	color: #535F63;
+	text-shadow: 2px 2px solid white;
+	/*color: /*#535F63;*/
+	color: white;
 }
 .container{
 	text-align: center;
