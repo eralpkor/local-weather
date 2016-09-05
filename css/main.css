@@ -17,6 +17,9 @@ p{
 	/*color: /*#535F63;*/
 	color: white;
 }
+li{
+	text-transform: uppercase;
+}
 .container{
 	text-align: center;
 	/*padding-top: 75px;*/
@@ -38,9 +41,9 @@ hr{
 	max-height: auto;
 	background: #D9F7D0;
 }
-.btn-md, .btn-group-lg > .btn {
+.btn-md, .btn-group-lg, .btn-default > .btn {
     
-    margin: 10px
+    margin: 20px
   }
   .signature{
   font-family: 'Dancing Script', cursive;

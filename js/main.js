@@ -4,8 +4,8 @@
 
 
 $(document).ready(function(){
-	var lon;
-	var lat;
+	var lon, lat, fahTemp, celTemp, windSpeedMi, windSpeedKm;
+	
 	$.getJSON("http://ip-api.com/json", function(data2){
 		lat = data2.lat;
 		lon = data2.lon;
@@ -21,15 +21,6 @@ $(document).ready(function(){
 	var additionalId = [951, 952, 953, 954, 955, 956, 957, 958, 959, 960, 961, 962];
 
 
-	
-	var fahTemp;
-	var celTemp;
-	var windSpeedMi;
-	var windSpeedKm;
-
-	
-	
-
 	var api = "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid=6514690fd982377cba22dc9a829e7f80";
 
   	 $.getJSON(api, function(data){
@@ -39,7 +30,7 @@ $(document).ready(function(){
 		var windSpeed = data.wind.speed;
 		var location = data.name;
 		var mainId = data.weather[0].id; // to get parameters (Rain, Snow, Extreme, Clouds etc.)
-		//var icon = data.weather[0].icon;
+		
 		// Kelvin to Fahreneit formula
 		fahTemp = kelvin * (9 / 5) - 459.67; //fahTemp = (kelvin * (9 / 5) - 459.67).toFixed(1);
 		// Kelvin to celcius
@@ -51,13 +42,13 @@ $(document).ready(function(){
 		// console.log(data.coord.lat);
 		windSpeedMi = (2.237 * windSpeed).toFixed(2);
 		windSpeedKm = windSpeed.toFixed(2);
-		console.log(data.coord.lon);
-		console.log(location);
-		console.log(api);
-		console.log(mainId);
-		//console.log(icon);
-		console.log(celTemp.toFixed(2));
-		console.log(weatherType);
+		// console.log(data.coord.lon);
+		// console.log(location);
+		// console.log(api);
+		// console.log(mainId);
+		// //console.log(icon);
+		// console.log(celTemp.toFixed(2));
+		// console.log(weatherType);
 
 		var celTemp = celTemp.toFixed(1);
 		var fahTemp = fahTemp.toFixed(1);
