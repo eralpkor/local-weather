@@ -1,6 +1,3 @@
-// API Key 6514690fd982377cba22dc9a829e7f80
-
-
 
 
 $(document).ready(function(){
@@ -45,13 +42,6 @@ $(document).ready(function(){
 		windSpeedMi = (2.237 * windSpeed).toFixed(2);
 		windSpeedKm = windSpeed.toFixed(2);
 
-		// console.log(data.coord.lon);
-		// console.log(location);
-		// console.log(api);
-		// console.log(mainId);
-		// //console.log(icon);
-		// console.log(celTemp.toFixed(2));
-		// //console.log(weatherType);
 
 		var celTemp = celTemp.toFixed(1);
 		var fahTemp = fahTemp.toFixed(1);
