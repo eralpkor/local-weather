@@ -16,9 +16,11 @@ $(document).ready(function(){
 	var snowId = [600, 601, 602, 611, 612, 615, 616, 620, 621, 622];
 	var atmosphereId = [701,711, 721, 731, 741, 751, 761, 762, 771, 781];
 	var clearId = [800];
-	var cloudId = ["801", "802", "803", "804"];
+	var cloudId = [801, 802, 803, 804];
 	var extremeId = [900, 901, 902, 903, 904, 905, 906];
 	var additionalId = [951, 952, 953, 954, 955, 956, 957, 958, 959, 960, 961, 962];
+
+
 
 
 	var api = "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid=6514690fd982377cba22dc9a829e7f80";
@@ -29,7 +31,7 @@ $(document).ready(function(){
 		var kelvin = data.main.temp;
 		var windSpeed = data.wind.speed;
 		var location = data.name;
-		var mainId = data.weather[0].id; // to get parameters (Rain, Snow, Extreme, Clouds etc.)
+		var weatherID = data.weather[0].id; // to get parameters (Rain, Snow, Extreme, Clouds etc.)
 		
 		// Kelvin to Fahreneit formula
 		fahTemp = kelvin * (9 / 5) - 459.67; //fahTemp = (kelvin * (9 / 5) - 459.67).toFixed(1);
@@ -42,13 +44,14 @@ $(document).ready(function(){
 		// console.log(data.coord.lat);
 		windSpeedMi = (2.237 * windSpeed).toFixed(2);
 		windSpeedKm = windSpeed.toFixed(2);
+
 		// console.log(data.coord.lon);
 		// console.log(location);
 		// console.log(api);
 		// console.log(mainId);
 		// //console.log(icon);
 		// console.log(celTemp.toFixed(2));
-		// console.log(weatherType);
+		// //console.log(weatherType);
 
 		var celTemp = celTemp.toFixed(1);
 		var fahTemp = fahTemp.toFixed(1);
@@ -95,17 +98,42 @@ $(document).ready(function(){
 			$("#greeting").replaceWith(greeting = "Good Morning " + location);
 		}
 
-if(mainId === rainId[0],[1],[2],[3],[4],[5],[6],[7],[8],[9]){
-	$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472930478/rain1_illywl.jpg");
-}else if(mainId === cloudId[0],[1],[2],[3]){
-	$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472927594/clouds_q6jxw4.jpg");
-}else if (mainId === drizzleId[0],[1],[2],[3],[4],[5],[6],[7],[8]){
-	$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472930471/thunderstorm1_uhxbg2.jpg");
-}else if (mainId == clearId[0]){
-	$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472843912/arizona_desert.jpg");//, $("#weatherIcon").css("background-image", "url(../img/rain_showers.png)");//$("#weatherIcon").replaceWith(iconSunny);
-	console.log(clearId[0]);
-}
-
+		//  Change background image according to weather condition
+	var a = new Set(thunderstormId);
+	var b = new Set(drizzleId);
+	var c = new Set (rainId);
+	var d = new Set(snowId);
+	var e = new Set(atmosphereId);
+	var f = new Set(clearId);
+	var g = new Set(cloudId);
+	var h = new Set(extremeId);
+	if (a.has(weatherID) === true){
+		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472930471/thunderstorm1_uhxbg2.jpg");
+		console.log("It's thundering!");
+	}else if(b.has(weatherID) === true){
+		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472930471/drizzle1_vzxn7s.jpg");
+		console.log("It's drizziling!");
+	}else if( c.has(weatherID) === true){
+		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472930478/rain1_illywl.jpg");
+		console.log("It's raining!");
+	}else if(d.has(weatherID) === true){
+		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472843912/avalanche_danger_p9v6q1.jpg");
+		console.log("It's snowing!");
+	}else if(e.has(weatherID) === true){
+		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472930471/clouds2_dlguac.jpg");
+		console.log("Smoking!");
+	}else if(f.has(weatherID) === true){
+		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472843912/arizona_desert.jpg");
+		console.log("It's clear!");
+	}else if(g.has(weatherID) === true){
+		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472927594/clouds_q6jxw4.jpg");
+		console.log("It's cloudy!");
+	}else if(h.has(weatherID) === true){
+		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1473207578/extreme_iftjjo.jpg");
+		console.log("extreme");
+	}else{
+		console.log("Good luck");
+	}
 
 
 	});
