@@ -1,8 +1,3 @@
-// API Key 6514690fd982377cba22dc9a829e7f80
-
-
-
-
 $(document).ready(function(){
 	var lon, lat, fahTemp, celTemp, windSpeedMi, windSpeedKm;
 	
@@ -45,13 +40,6 @@ $(document).ready(function(){
 		windSpeedMi = (2.237 * windSpeed).toFixed(2);
 		windSpeedKm = windSpeed.toFixed(2);
 
-		// console.log(data.coord.lon);
-		// console.log(location);
-		// console.log(api);
-		// console.log(mainId);
-		// //console.log(icon);
-		// console.log(celTemp.toFixed(2));
-		// //console.log(weatherType);
 
 		var celTemp = celTemp.toFixed(1);
 		var fahTemp = fahTemp.toFixed(1);
@@ -107,37 +95,60 @@ $(document).ready(function(){
 	var f = new Set(clearId);
 	var g = new Set(cloudId);
 	var h = new Set(extremeId);
-	if (a.has(weatherID) === true){
-		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472930471/thunderstorm1_uhxbg2.jpg");
-		console.log("It's thundering!");
-	}else if(b.has(weatherID) === true){
-		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472930471/drizzle1_vzxn7s.jpg");
-		console.log("It's drizziling!");
-	}else if( c.has(weatherID) === true){
-		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472930478/rain1_illywl.jpg");
-		console.log("It's raining!");
-	}else if(d.has(weatherID) === true){
-		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472843912/avalanche_danger_p9v6q1.jpg");
-		console.log("It's snowing!");
-	}else if(e.has(weatherID) === true){
-		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472930471/clouds2_dlguac.jpg");
-		console.log("Smoking!");
-	}else if(f.has(weatherID) === true){
-		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472843912/arizona_desert.jpg");
-		console.log("It's clear!");
-	}else if(g.has(weatherID) === true){
-		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472927594/clouds_q6jxw4.jpg");
-		console.log("It's cloudy!");
-	}else if(h.has(weatherID) === true){
-		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1473207578/extreme_iftjjo.jpg");
-		console.log("extreme");
+	var dayLight;
+	if (hourNow >= 6 && hourNow <= 18){
+		console.log("Good day");
+		dayLight = true;
 	}else{
-		console.log("Good luck");
+		dayLight = false;
 	}
 
+	if (a.has(weatherID) === true && dayLight === true){
+		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472930471/thunderstorm1_uhxbg2.jpg");
+		
+	}else if(b.has(weatherID) === true && dayLight === true){
+		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472930471/drizzle1_vzxn7s.jpg");
+		
+	}else if( c.has(weatherID) === true && dayLight === true){
+		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472930478/rain1_illywl.jpg");
+		
+	}else if(d.has(weatherID) === true && dayLight === true){
+		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472843912/avalanche_danger_p9v6q1.jpg");
+		
+	}else if(e.has(weatherID) === true && dayLight === true){
+		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472930471/clouds2_dlguac.jpg");
+		
+	}else if(f.has(weatherID) === true && dayLight === true){
+		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472843912/arizona_desert.jpg");
+		
+	}else if(g.has(weatherID) === true && dayLight == true){
+		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472927594/clouds_q6jxw4.jpg");
+		
+	}else if(h.has(weatherID) === true && dayLight === true){
+		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1473207578/extreme_iftjjo.jpg");
+		
+	}else if(a.has(weatherID) === true && dayLight === false){
+		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1473216423/night-thunderstorm.jpg");
+		
+	}else if(b.has(weatherID) === true && dayLight == false){
+		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1473216428/drizzle.jpg");
+	}else if(c.has(weatherID) === true && dayLight === false){
+		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1473217960/night-rain_fbrzif.jpg");
+	}else if(d.has(weatherID) === true && dayLight === false){
+		$("#hero").backstretchK("https://res.cloudinary.com/default-ek/image/upload/v1473216425/snow_nelk8u.jpg");
+	}else if(e.has(weatherID) === true && dayLight === false){
+		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/v1473218162/volcano-night2_ffalm6.jpg");
+	}else if(f.has(weatherID) === true && dayLight === false){
+		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1473216430/city-scape_tbhxor.jpg");
+	}else if(g.has(weatherID) === true && dayLight === false){
+		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1473216439/photo-1442310205806-e3ff990dfd46_g7rkbl.jpg");
+	}else if(h.has(weatherID) === true && dayLight === false){
+		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1473216423/night-thunderstorm.jpg");
+	}else{
+		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/v1469635013/buda-1_g6faip.jpg");
+	}
 
 	});
 	});
   
-
 });
