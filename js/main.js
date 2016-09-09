@@ -1,3 +1,5 @@
+// API Key 6514690fd982377cba22dc9a829e7f80
+
 $(document).ready(function(){
 	var lon, lat, fahTemp, celTemp, windSpeedMi, windSpeedKm;
 	
@@ -14,8 +16,6 @@ $(document).ready(function(){
 	var cloudId = [801, 802, 803, 804];
 	var extremeId = [900, 901, 902, 903, 904, 905, 906];
 	var additionalId = [951, 952, 953, 954, 955, 956, 957, 958, 959, 960, 961, 962];
-
-
 
 
 	var api = "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid=6514690fd982377cba22dc9a829e7f80";
@@ -37,8 +37,8 @@ $(document).ready(function(){
 		// If request km vs mph
 		var changeWindSpeed = true;
 		// console.log(data.coord.lat);
-		windSpeedMi = (2.237 * windSpeed).toFixed(2);
-		windSpeedKm = windSpeed.toFixed(2);
+		windSpeedMi = windSpeed.toFixed(2);
+		windSpeedKm = (2.234 * windSpeed).toFixed(2);
 
 
 		var celTemp = celTemp.toFixed(1);
@@ -48,7 +48,6 @@ $(document).ready(function(){
 		$("#location").html(location);
 		$("#fahTemp").html(fahTemp + " &#x2109;");
 		$("#weatherType").html(weatherType);
-			
 		$("#windSpeed").html(windSpeedMi + " mph");
 
 		$("#windSpeed").click(function(){
@@ -66,13 +65,12 @@ $(document).ready(function(){
 			if(changeTemp === false){
 				$("#fahTemp").html(fahTemp + " &#x2109;");
 				changeTemp = true;
-				
 			}else{
 				$("#fahTemp").html(celTemp + " &#x2103;");
 				changeTemp = false;
 			}
-
 		});
+
 					// Greeting 
 		var today = new Date();
 		var hourNow = today.getHours();
@@ -102,7 +100,7 @@ $(document).ready(function(){
 	}else{
 		dayLight = false;
 	}
-
+		// Change background image according to weather conditions and hour of the day
 	if (a.has(weatherID) === true && dayLight === true){
 		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472930471/thunderstorm1_uhxbg2.jpg");
 		
@@ -116,13 +114,13 @@ $(document).ready(function(){
 		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472843912/avalanche_danger_p9v6q1.jpg");
 		
 	}else if(e.has(weatherID) === true && dayLight === true){
-		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472930471/clouds2_dlguac.jpg");
+		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1473382645/haze-day2_lztgbz.jpg");
 		
 	}else if(f.has(weatherID) === true && dayLight === true){
 		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472843912/arizona_desert.jpg");
 		
 	}else if(g.has(weatherID) === true && dayLight == true){
-		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1472927594/clouds_q6jxw4.jpg");
+		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2650/v1472843912/cloudy_beach_rzey4m.jpg");
 		
 	}else if(h.has(weatherID) === true && dayLight === true){
 		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1473207578/extreme_iftjjo.jpg");
@@ -135,9 +133,10 @@ $(document).ready(function(){
 	}else if(c.has(weatherID) === true && dayLight === false){
 		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1473217960/night-rain_fbrzif.jpg");
 	}else if(d.has(weatherID) === true && dayLight === false){
-		$("#hero").backstretchK("https://res.cloudinary.com/default-ek/image/upload/v1473216425/snow_nelk8u.jpg");
+		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/v1473216425/snow_nelk8u.jpg");
 	}else if(e.has(weatherID) === true && dayLight === false){
-		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/v1473218162/volcano-night2_ffalm6.jpg");
+		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1473382646/haze-night_fzzcst.jpg");
+		
 	}else if(f.has(weatherID) === true && dayLight === false){
 		$("#hero").backstretch("https://res.cloudinary.com/default-ek/image/upload/c_scale,w_2560/v1473216430/city-scape_tbhxor.jpg");
 	}else if(g.has(weatherID) === true && dayLight === false){
@@ -152,3 +151,4 @@ $(document).ready(function(){
 	});
   
 });
+
