@@ -3,7 +3,7 @@
 $(document).ready(function(){
 	var lon, lat, fahTemp, celTemp, windSpeedMi, windSpeedKm;
 	
-	$.getJSON("http://ip-api.com/json", function(data2){
+	$.getJSON("https://crossorigin.me/http://ip-api.com/json", function(data2){
 		lat = data2.lat;
 		lon = data2.lon;
 
