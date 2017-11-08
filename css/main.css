@@ -8,6 +8,9 @@ body, h1, h3{
 	font-family: 'Montserrat Alternates', sans-serif;
 	/*font-family: 'Lato', sans-serif;*/
 }
+#hero{
+	position: fixed;
+}
 h1, h3{
 	text-shadow: 1px 1px #C3C6C7;
 	color: #535F63;
